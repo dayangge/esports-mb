@@ -1,0 +1,78 @@
+@import "../../../../styles/utils";
+.game-result {
+  width: 100%;
+  height: 100%;
+  background-color: #222;
+  .top-fixed {
+    background: #1e1f25;
+    position: relative;
+    top: 0;
+    z-index: 6;
+    width: 100%;
+    height: 5vh;
+    .top-header {
+      background: linear-gradient(to right, #264760 0%, #203243 25%, #18212b 50%, #33181d 75%, #522025 100%);
+      box-shadow: inset 0px -10px 20px -10px rgba(255, 255, 255, 0.4);
+      height: 5vh;
+      display: flex;
+      z-index: 10;
+      .back {
+        width: 10%;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: 5vh;
+        color: white;
+      }
+      .top-header-main {
+        width: 80%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: 5vh;
+        .header-main-name {
+          line-height: 5vh;
+          font-size: 2.5vh;
+          color: white;
+        }
+      }
+      .info {
+        width: 10%;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: 5vh;
+      }
+    }
+  }
+  .game-tabs{
+    width: 100%;
+    padding:0 px2vw(10);
+    height: 7vh;
+    @include border-1px(1px,#444860)
+  }
+  .main{
+    width: 100%;
+    padding:0 px2vw(10);
+    height: 88vh;
+    .select-box{
+      width: 100%;
+      padding:0 px2vw(10);
+      height: 7vh;
+    }
+    .result-list{
+      width: 100%;
+      padding:0 px2vw(10);
+      height: 80vh;
+    }
+
+  }
+}

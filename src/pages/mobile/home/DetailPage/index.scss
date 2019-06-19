@@ -1,0 +1,98 @@
+@import "../../../../styles/utils";
+.detail {
+  background: #1e1f25;
+  position: relative;
+  width: 100%;
+  z-index: 3;
+  height: 100vh;
+  @include border-1px(bottom, 1px, #fff);
+  .top-fixed {
+    background: #1e1f25;
+    position: relative;
+    top: 0;
+    z-index: 6;
+    width: 100%;
+    height: 5vh;
+    .top-header {
+      background: linear-gradient(to right, #264760 0%, #203243 25%, #18212b 50%, #33181d 75%, #522025 100%);
+      box-shadow: inset 0px -10px 20px -10px rgba(255, 255, 255, 0.4);
+      height: 5vh;
+      display: flex;
+      z-index: 10;
+      .back {
+        width: 10%;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: 5vh;
+        color: white;
+      }
+      .top-header-main {
+        width: 80%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: 5vh;
+        .header-main-name {
+          line-height: 5vh;
+          font-size: 2.5vh;
+          color: white;
+        }
+      }
+      .info {
+        width: 10%;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: 5vh;
+      }
+    }
+  }
+  .live-box {
+    background: #1e1f25;
+    position: relative;
+    width: 100%;
+    z-index: 3;
+    height: 27vh;
+    @include border-1px(bottom, 1px, #fff);
+  }
+  .handicap-tabs-box {
+    position: relative;
+    width: 100%;
+    height: 8.356vh;
+    padding: 1.634vh 0;
+    color: white;
+    .handicap-tabs {
+      background: linear-gradient(to bottom, #46475a 0%, #272736 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 6.426vh;
+      .viewData {
+        width: 33%;
+      }
+      .betsLog {
+        width: 33%;
+      }
+      .handicapGroup {
+        width: 33%;
+      }
+    }
+  }
+  .main {
+    width: 100%;
+    height: 58vh;
+    color: white;
+  }
+}
+
+

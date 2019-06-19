@@ -1,0 +1,36 @@
+@import "../../../../../styles/utils";
+#game-tabs-list{
+
+  width: 100%;
+  height: 7vw;
+}
+.game-tabs-list{
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  z-index: 1;
+  height: 6vh;
+  color: white;
+  @include border-1px(bottom, 1px, #444860);
+  .category-item{
+    height: 6vh;
+    line-height: 6vh;
+    font-size: 3.5vw;
+    float: left;
+    position: relative;
+    user-select: none;
+    width: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    border-bottom: 0 solid #9daaf0 ;
+    transition: all ease-in-out .1s;
+    .name{
+      white-space: nowrap;
+      -webkit-tap-highlight-color: transparent;
+    }
+  }
+}

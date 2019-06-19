@@ -1,0 +1,171 @@
+@import "../../../../../styles/utils";
+.event-item {
+  margin-bottom: 1.427vh;
+  width: 100%;
+  height: 11.74vh;
+  .event-header {
+    background: #3e3f6d;
+    font-size: 3.3vw;
+    height: 3.587vh;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    color: white;
+    align-items: center;
+    .rules {
+      color: #e3bd73;
+      position: absolute;
+      right: 29%;
+    }
+    .league {
+      width: 28%;
+      text-align: right;
+      padding-right: 2.347vw;
+      position: absolute;
+      right: 2%;
+      @include textOverflow
+    }
+    .title {
+      display: flex;
+      align-items: center;
+      width: 52%;
+      .game-logo {
+        width: 2.28vh;
+        height: 2.28vh;
+        margin-left: 2.347vw;
+      }
+    }
+  }
+  .event-content {
+    background: linear-gradient(to right, #39395f 0%, #26263f 50%);
+    height: 8.15vh;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: white;
+    .event-content-left {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 86%;
+      .group-left {
+        width: 50%;
+        padding: 0 3px;
+        float: left;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        .group-team {
+          display: flex;
+          width: 65%;
+          justify-content: center;
+          align-items: center;
+          .name {
+            text-align: right;
+            font-size: 3.478vw;
+            width: 60%;
+          }
+          .icon {
+            width: 40%;
+            align-items: center;
+            justify-content: center;
+            img {
+              width: 4.483vh;
+            }
+          }
+        }
+        .odds {
+          width: 35%;
+          text-align: center;
+          .odds-item {
+            background: rgba(0, 0, 0, 0.3);
+            height: 5.95vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include borderAround-1px( 1px, rgba(255, 255, 255, 0.2));
+            .odds-num {
+              color: #ffffff;
+              font-size: 4.058vw
+            }
+          }
+        }
+      }
+
+      .group-right {
+        width: 50%;
+        padding: 0 3px;
+        float: right;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        .group-team {
+          display: flex;
+          width: 65%;
+          align-items: center;
+          justify-content: center;
+          .name {
+            text-align: left;
+            font-size: 3.478vw;
+            width: 60%;
+          }
+          .icon {
+            width: 40%;
+            align-items: center;
+            justify-content: center;
+            img {
+              width: 4.483vh;
+            }
+          }
+        }
+        .odds {
+          width: 35%;
+          text-align: center;
+          .odds-item {
+            background: rgba(0, 0, 0, 0.3);
+            height: 5.95vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include borderAround-1px(1px, rgba(255, 255, 255, 0.2));
+            .odds-num {
+              color: #ffffff;
+              font-size: 4.058vw;
+            }
+          }
+        }
+      }
+    }
+
+    .event-content-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 14%;
+      .handicapInfo {
+        position: relative;
+        background: #db2f25;
+        width: 85%;
+        padding: 4.5px 0 3px;
+        height: 5.421vh;
+        margin-right: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .num {
+          font-size: 3.478vw;
+        }
+        .text {
+          font-size: 3.043vw;
+          margin-top: -0.408vh;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+

@@ -1,0 +1,111 @@
+
+.index {
+  animation: slideLeft .3s forwards;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  margin: auto;
+  width: 1px;
+  min-width: 100%;
+  color: #ffffff;
+  background: #1e1f25;
+  .top-fixed{
+    background: #1e1f25;
+    position: relative;
+    top: 0;
+    z-index: 6;
+    width: 100%;
+    height: 5vh;
+    .top-header {
+      background: linear-gradient(to right, #264760 0%, #203243 25%, #18212b 50%, #33181d 75%, #522025 100%);
+      box-shadow: inset 0px -10px 20px -10px rgba(255, 255, 255, 0.4);
+      height: 5vh;
+      display: flex;
+      z-index: 10;
+      .back {
+        width: 10%;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: 5vh;
+      }
+      .top-header-main {
+        width: 80%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: 5vh;
+        .header-main-name {
+          line-height: 5vh;
+          font-size: 2.5vh;
+          color: white;
+        }
+      }
+    }
+    .info {
+      width: 10%;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      height: 5vh;
+    }
+  }
+  .game-tab {
+    background: #1e1f25;
+    position: relative;
+    z-index: 6;
+    width: 100%;
+    font-size: 2vw;
+    height: 10vh;
+    .game-tab-main {
+      margin-top: 1vw;
+      padding-left: 3.6vw;
+      padding-right: 3.6vw;
+      padding-bottom: 1.5vh;
+    }
+  }
+  .game-result {
+    background: #1e1f25;
+    position: relative;
+    z-index: 6;
+    width: 100%;
+    font-size: 2vw;
+    height: 5vh;
+    .result-button {
+      background: linear-gradient(to bottom, #4f5ca2 0%, #3a4372 100%);
+      padding: 5.16px 0;
+      border-radius: 14.04px;
+      width: 25%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .text {
+        font-size: 11.96px
+      }
+    }
+  }
+  .main {
+    position: relative;
+    padding: 0 3.6vw;
+    .event-loading {
+      position: relative;
+      width: 100%;
+      height: 50px;
+      text-align: center;
+      font-size: 16px;
+    }
+  }
+}
+
+
+

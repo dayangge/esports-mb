@@ -1,0 +1,162 @@
+$pageWith:375;
+$pageHeight: 667;
+
+@mixin textOverflow {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
+@function px2vw($px) {
+  @return $px / $pageWith * 100vw;
+}
+
+@function px2vh($px) {
+  @return $px / $pageHeight * 100vh;
+}
+
+
+@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white){
+  overflow: hidden;
+  position: relative;
+  line-height: $lineHeight;
+  max-height: $lineHeight * $lineCount;
+  text-align: justify;
+  margin-right: -1em;
+  padding-right: 1em;
+  &:before {
+    content: '...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: $bgColor;
+  }
+}
+
+
+@mixin textOverflowMulti($line: 3, $bg: #fff) {
+  position: relative;
+  max-height: $line * 1.5em;
+  margin-right: -1em;
+  padding-right: 1em;
+  overflow: hidden;
+  line-height: 1.5em;
+  text-align: justify;
+  &:before{
+  position: absolute;
+  right: 14px;
+  bottom: 0;
+  padding: 0 1px;
+  background: $bg;
+  content: '...';
+  }
+  &:after {
+    position: absolute;
+    right: 14px;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: white;
+    content: '';
+  }
+}
+// mixins for clearfix
+// ------------------------
+@mixin clearfix {
+  zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: ' ';
+  }
+  &:after {
+    clear: both;
+    height: 0;
+    font-size: 0;
+    visibility: hidden;
+  }
+}
+
+/*换行*/
+@mixin wrapBreak {
+  &:after {
+    content: '\A';
+    white-space: pre;
+  }
+}
+
+@mixin dot{
+  &:after{
+    display: block;
+    margin-left: 5.2em;
+    content: '...\A..\A.';
+    white-space: pre-wrap;
+    animation: dot 3s infinite step-start both;
+  }
+}
+
+@mixin borderCommon {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200%;
+  height: 200%;
+  -webkit-transform-origin: left top;
+  transform-origin: left top;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  pointer-events: none; /* 防止点击触发 */
+  box-sizing: border-box;
+}
+
+
+@mixin border-1px($side: bottom, $borderWidth:1px, $color: red ) {
+  position: relative;
+  &:before {
+    border-#{$side}: $borderWidth solid $color;
+    color: $color;
+    @include borderCommon;
+    @media screen and (min-device-pixel-ratio:2), (-webkit-min-device-pixel-ratio:2) {
+      width: 200%;
+      height: 200%;
+      transform: scale(0.5);
+    }
+    @media screen and (min-device-pixel-ratio:3), (-webkit-min-device-pixel-ratio:3) {
+      width: 300%;
+      height: 300%;
+      transform: scale(0.33);
+    }
+  }
+  }
+
+@mixin borderAround-1px($borderWidth:1px, $color: red ) {
+  position: relative;
+  &:before {
+    border: 1px solid $color;
+    color: $color;
+    @include borderCommon;
+    @media screen and (min-device-pixel-ratio:2), (-webkit-min-device-pixel-ratio:2) {
+      width: 200%;
+      height: 200%;
+      transform: scale(0.5);
+    }
+    @media screen and (min-device-pixel-ratio:3), (-webkit-min-device-pixel-ratio:3) {
+      width: 300%;
+      height: 300%;
+      transform: scale(0.33);
+    }
+  }
+}
+
+
+

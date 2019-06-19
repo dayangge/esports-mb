@@ -1,0 +1,343 @@
+/* reset css */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  tap-highlight-color: rgba(0, 0, 0, 0);
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+/* iphonex 安全区域 */
+body {
+  overflow-x: hidden;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #1e1f25;
+}
+a, a:hover{
+  -webkit-tap-highlight-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.colorWeak {
+  filter: invert(80%);
+}
+
+.ant-layout {
+  min-height: 100vh;
+}
+
+canvas {
+  display: block;
+}
+
+.globalSpin {
+  width: 100%;
+  margin: 40px 0 !important;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+button{
+  font-family: inherit;
+  outline: none;
+}
+
+.fr{
+  float: right !important;
+}
+.fl{
+  float: left !important;
+}
+.tal{
+  text-align: left;
+}
+.msg{
+  margin-right: 200px;
+  display: inline-block;
+}
+
+.mrl15{
+  margin-left: 15px;
+}
+.mrl5{
+  margin-left: 5px;
+}
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+tr{
+  margin: 0;
+  padding: 0;
+}
+td{
+  vertical-align:middle
+}
+
+.fix-iphonex-bottom{
+  padding-bottom: 34px;
+}
+
+/*由右至左胡滑动*/
+.slides-enter {
+  transform: translateX(-50%);
+  opacity: 0;
+}
+.slides-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: all 400ms;
+}
+.slides-exit {
+  transform: translateX(0);
+  opacity: 0;
+}
+.slides-exit-active {
+  transform: translateX(-50%);
+  opacity: 1;
+  transition: all 400ms;
+}
+.slides-exit-done {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.router-wrapper{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/*由上至下滑动*/
+.upSlides-enter {
+  transform: translateY(-10%);
+  opacity: 0;
+}
+.upSlides-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 400ms;
+}
+.upSlides-exit {
+  transform: translateY(0);
+  opacity: 0;
+}
+.upSlides-exit-active {
+  transform: translateY(-10%);
+  opacity: 1;
+  transition: all 400ms;
+}
+.upSlides-exit-done {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*由右至左100%滑动*/
+.rightToLeftSlide100-enter {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.rightToLeftSlide100-enter-active {
+  transform: translateX(0);
+  transition: all 400ms;
+}
+.rightToLeftSlide100-exit {
+  transform: translateX(0);
+  opacity: 0;
+}
+.rightToLeftSlide100-exit-active {
+  transform: translateX(-100%);
+  transition: all 400ms;
+}
+.rightToLeftSlide100-exit-done {
+  transform: translateX(0);
+}
+
+/*路由动画*/
+/* src/App5/index.css */
+
+/* 路由前进时的入场/离场动画 */
+.forward-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.forward-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 500ms;
+}
+
+.forward-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.forward-exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 500ms;
+}
+
+/* 路由后退时的入场/离场动画 */
+.back-enter {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.back-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 500ms;
+}
+
+.back-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.back-exit-active {
+  opacity: 0;
+  transform: translate(100%);
+  transition: all 500ms;
+}
+
+/*正在加载的后面的点点动画*/
+
+
