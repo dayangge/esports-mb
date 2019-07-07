@@ -1,0 +1,207 @@
+@import "../../../../styles/utils";
+@import "../../../../styles/common";
+.betLog {
+  background: #1e1f25;
+  position: relative;
+  width: 100%;
+  z-index: 3;
+  height: 100vh;
+  color: white;
+  @include border-bottom-1px(#fff);
+  .top-fixed{
+    @include topHeader;
+    .top-header {
+      @include headerNav;
+      .back {
+        width: 10%;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height:$topHeight;
+        color: white;
+      }
+      .top-header-main {
+        width: 80%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: $topHeight;
+        .header-main-name {
+          line-height: 5vh;
+          font-size: 2.5vh;
+          color: white;
+        }
+      }
+      .info {
+        width: 10%;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: $topHeight;
+        .bet-info{
+          width: px2vw(24);
+          height: px2vw(24);
+          background-image: image-set(
+              url('../../../../assets/youxijilu@2x.png') 2x,
+              url('../../../../assets/youxijilu@3x.png') 3x
+          );
+          background-size: contain;
+        }
+      }
+    }
+  }
+  .date-picker{
+    width: 90%;
+    margin: 0 auto;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .start{
+      width: 35%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .icon{
+        width: px2vw(20);
+        height: px2vw(20);
+        background-image: image-set(
+            url('../../../../assets/riqi@2x.png') 2x,
+            url('../../../../assets/riqi@3x.png') 3x
+        );
+        background-size: contain;
+      }
+      .date{
+        padding-left: px2vw(6);
+      }
+    }
+    .text{
+      width: 10%;
+      text-align: center;
+      font-size: px2vw(14);
+    }
+  }
+  .main{
+    position: relative;
+    padding: px2vh(10) px2vw(10);
+    height: 86vh;
+    overflow-y: scroll;
+    .list-box{
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      .item {
+        width: 100%;
+        background-color: #3e3f6d;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 6px;
+        margin-bottom: px2vh(4);
+        overflow-x:hidden ;
+        .content-box{
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          height: px2vh(62);
+          .content {
+            width: 92%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            .title {
+              width: 100%;
+              padding: 0 px2vw(8);
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              flex-direction: row;
+              margin-top: px2vh(4);
+              .team {
+                font-size: px2vw(13);
+                line-height: 1.5em;
+              }
+              .status {
+                font-size: px2vw(13);
+                line-height: 1.5em;
+              }
+            }
+            .date {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              flex-direction: row;
+              padding: 0 px2vw(8);
+              margin-bottom: px2vh(4);
+              .time {
+                font-size: px2vw(14);
+                line-height: 1.5em;
+              }
+              .win {
+                font-size: px2vw(14);
+                line-height: 1.5em;
+              }
+            }
+          }
+          .expend{
+            width: 8%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #454679;
+            height: 100%;
+            box-shadow: 10px 0 10px 5px #0d0d15;
+            .arrow{
+              font-size: px2vw(16);
+            }
+          }
+        }
+
+        .item-detail{
+          width: 100%;
+          background-color: #26263e;
+          @include border-bottom-1px(#333351);
+          .detail-info{
+            width: 100%;
+            padding: 0 px2vw(10);
+            font-size: px2vw(12);
+            height: px2vh(24);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @include border-bottom-1px(#333351);
+            &:nth-child(1){
+              margin-top: px2vw(4);
+            }
+            .left{
+
+            }
+            .right{
+              width: 80%;
+              @include textOverflow;
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+  }
+}

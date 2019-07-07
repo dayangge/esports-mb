@@ -1,24 +1,16 @@
 @import "../../../../styles/utils";
+@import "../../../../styles/common";
 .detail {
   background: #1e1f25;
   position: relative;
   width: 100%;
   z-index: 3;
   height: 100vh;
-  @include border-1px(bottom, 1px, #fff);
-  .top-fixed {
-    background: #1e1f25;
-    position: relative;
-    top: 0;
-    z-index: 6;
-    width: 100%;
-    height: 5vh;
+  @include border-bottom-1px(#fff);
+  .top-fixed{
+    @include topHeader;
     .top-header {
-      background: linear-gradient(to right, #264760 0%, #203243 25%, #18212b 50%, #33181d 75%, #522025 100%);
-      box-shadow: inset 0px -10px 20px -10px rgba(255, 255, 255, 0.4);
-      height: 5vh;
-      display: flex;
-      z-index: 10;
+      @include headerNav;
       .back {
         width: 10%;
         margin: 0 auto;
@@ -27,7 +19,7 @@
         align-items: center;
         justify-content: center;
         position: relative;
-        height: 5vh;
+        height: $topHeight;
         color: white;
       }
       .top-header-main {
@@ -37,7 +29,7 @@
         align-items: center;
         justify-content: center;
         position: relative;
-        height: 5vh;
+        height: $topHeight;
         .header-main-name {
           line-height: 5vh;
           font-size: 2.5vh;
@@ -52,45 +44,112 @@
         align-items: center;
         justify-content: center;
         position: relative;
-        height: 5vh;
+        height: $topHeight;
       }
     }
   }
   .live-box {
-    background: #1e1f25;
     position: relative;
     width: 100%;
     z-index: 3;
     height: 27vh;
-    @include border-1px(bottom, 1px, #fff);
-  }
-  .handicap-tabs-box {
-    position: relative;
-    width: 100%;
-    height: 8.356vh;
-    padding: 1.634vh 0;
     color: white;
-    .handicap-tabs {
-      background: linear-gradient(to bottom, #46475a 0%, #272736 100%);
+    background-image: image-set(
+        url('../../../../assets/beijing@2x.png') 2x,
+        url('../../../../assets/beijing@3x.png') 3x
+    );
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    @include border-bottom-1px(#fff);
+    font-size: px2vw(14);
+    .left{
+      width: 30%;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      height: 6.426vh;
-      .viewData {
-        width: 33%;
+      flex-direction: column;
+
+      .logo{
+        width: px2vw(50);
+        height: px2vw(50);
+        overflow: hidden;
+        border-radius: 50%;
+        border: 2px solid #6f6b34;
+        img{
+          width: 100%;
+          height: 100%;
+        }
       }
-      .betsLog {
-        width: 33%;
+      .name{
+        text-align: center;
+        width: px2vw(80);
       }
-      .handicapGroup {
-        width: 33%;
+    }
+    .center{
+      width: 40%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      .logo{
+        width: px2vw(30);
+        height: px2vw(30);
+        margin-bottom: px2vh(20);
+        img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .name{
+        text-align: center;
+        margin-bottom: px2vh(10);
+      }
+      .time{
+        text-align: center;
+        margin-bottom: px2vh(10);
+      }
+      .live{
+        padding: 0;
+        text-align: center;
+        width: px2vw(80);
+        height: px2vh(36);
+        line-height: px2vh(36);
+        background-color: #0d0d15;
+        border: 1px solid #e3bd73;
+        border-radius: 6px;
+      }
+    }
+    .right{
+      width: 30%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      .logo{
+        width: px2vw(50);
+        height: px2vw(50);
+        overflow: hidden;
+        border-radius: 50%;
+        border: 2px solid #6f6b34;
+        img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .name{
+        text-align: center;
+        width: px2vw(80);
       }
     }
   }
+
   .main {
     width: 100%;
-    height: 58vh;
+    height: 66vh;
     color: white;
   }
 }

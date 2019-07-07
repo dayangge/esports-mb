@@ -109,52 +109,103 @@ $pageHeight: 667;
   position: absolute;
   left: 0;
   top: 0;
-  width: 200%;
-  height: 200%;
   -webkit-transform-origin: left top;
   transform-origin: left top;
-  -webkit-transform: scale(0.5);
-  transform: scale(0.5);
   pointer-events: none; /* 防止点击触发 */
   box-sizing: border-box;
 }
 
 
-@mixin border-1px($side: bottom, $borderWidth:1px, $color: red ) {
-  position: relative;
-  &:before {
-    border-#{$side}: $borderWidth solid $color;
-    color: $color;
-    @include borderCommon;
-    @media screen and (min-device-pixel-ratio:2), (-webkit-min-device-pixel-ratio:2) {
-      width: 200%;
-      height: 200%;
-      transform: scale(0.5);
-    }
-    @media screen and (min-device-pixel-ratio:3), (-webkit-min-device-pixel-ratio:3) {
-      width: 300%;
-      height: 300%;
-      transform: scale(0.33);
-    }
+@mixin min-device-pixel-ratio($scale2, $scale3) {
+  @media screen and (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2) {
+    transform: $scale2;
   }
+  @media screen and (min-device-pixel-ratio: 3), (-webkit-min-device-pixel-ratio: 3) {
+    transform: $scale3;
   }
+}
 
-@mixin borderAround-1px($borderWidth:1px, $color: red ) {
+@mixin border-1px($color: #DDD, $radius: 4PX, $style: solid) {
   position: relative;
-  &:before {
-    border: 1px solid $color;
-    color: $color;
-    @include borderCommon;
-    @media screen and (min-device-pixel-ratio:2), (-webkit-min-device-pixel-ratio:2) {
+  &::before {
+    content: "";
+    pointer-events: none;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform-origin: 0 0;
+    border: 1PX $style $color;
+    border-radius: $radius;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    @media screen and (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2) {
       width: 200%;
       height: 200%;
-      transform: scale(0.5);
+      border-radius: $radius * 2;
+      transform: scale(.5);
     }
-    @media screen and (min-device-pixel-ratio:3), (-webkit-min-device-pixel-ratio:3) {
+    @media screen and (min-device-pixel-ratio: 3), (-webkit-min-device-pixel-ratio: 3) {
       width: 300%;
       height: 300%;
-      transform: scale(0.33);
+      border-radius: $radius * 3;
+      transform: scale(.33);
     }
+  }
+}
+
+@mixin border-top-1px($color: #DDD, $style: solid) {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border-top: 1Px $style $color;
+    transform-origin: 0 0;
+    @include min-device-pixel-ratio(scaleY(.5), scaleY(.33));
+  }
+}
+@mixin border-bottom-1px($color: #DDD, $style: solid) {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-bottom: 1Px $style $color;
+    transform-origin: 0 0;
+    @include min-device-pixel-ratio(scaleY(.5), scaleY(.33));
+  }
+}
+@mixin border-left-1px($color: #DDD, $style: solid) {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    border-left: 1Px $style $color;
+    transform-origin: 0 0;
+    @include min-device-pixel-ratio(scaleY(.5), scaleY(.33));
+  }
+}
+
+@mixin border-right-1px($color: #DDD, $style: solid) {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    border-right: 1Px $style $color;
+    transform-origin: 0 0;
+    @include min-device-pixel-ratio(scaleY(.5), scaleY(.33));
   }
 }
 

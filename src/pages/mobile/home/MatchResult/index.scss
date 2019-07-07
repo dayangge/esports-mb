@@ -1,21 +1,13 @@
 @import "../../../../styles/utils";
+@import "../../../../styles/common";
 .game-result {
   width: 100%;
   height: 100%;
   background-color: #222;
-  .top-fixed {
-    background: #1e1f25;
-    position: relative;
-    top: 0;
-    z-index: 6;
-    width: 100%;
-    height: 5vh;
+  .top-fixed{
+    @include topHeader(12vh);
     .top-header {
-      background: linear-gradient(to right, #264760 0%, #203243 25%, #18212b 50%, #33181d 75%, #522025 100%);
-      box-shadow: inset 0px -10px 20px -10px rgba(255, 255, 255, 0.4);
-      height: 5vh;
-      display: flex;
-      z-index: 10;
+      @include headerNav;
       .back {
         width: 10%;
         margin: 0 auto;
@@ -24,7 +16,7 @@
         align-items: center;
         justify-content: center;
         position: relative;
-        height: 5vh;
+        height: $topHeight;
         color: white;
       }
       .top-header-main {
@@ -34,9 +26,9 @@
         align-items: center;
         justify-content: center;
         position: relative;
-        height: 5vh;
+        height: $topHeight;
         .header-main-name {
-          line-height: 5vh;
+          line-height: 7vh;
           font-size: 2.5vh;
           color: white;
         }
@@ -49,30 +41,31 @@
         align-items: center;
         justify-content: center;
         position: relative;
-        height: 5vh;
+        height: $topHeight;
+        .bet-info{
+          width: px2vw(24);
+          height: px2vw(24);
+          background-image: image-set(
+              url('../../../../assets/youxijilu@2x.png') 2x,
+              url('../../../../assets/youxijilu@3x.png') 3x
+          );
+          background-size: contain;
+        }
       }
     }
   }
   .game-tabs{
     width: 100%;
     padding:0 px2vw(10);
-    height: 7vh;
-    @include border-1px(1px,#444860)
+    height: 6vh;
+    @include border-bottom-1px(#444860)
   }
   .main{
     width: 100%;
     padding:0 px2vw(10);
-    height: 88vh;
-    .select-box{
-      width: 100%;
-      padding:0 px2vw(10);
-      height: 7vh;
-    }
-    .result-list{
-      width: 100%;
-      padding:0 px2vw(10);
-      height: 80vh;
-    }
+    height: 84vh;
+    margin-top: 1vh;
+    color: white;
 
   }
 }

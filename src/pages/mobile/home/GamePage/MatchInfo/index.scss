@@ -18,7 +18,7 @@
       right: 29%;
     }
     .league {
-      width: 28%;
+      width: 40%;
       text-align: right;
       padding-right: 2.347vw;
       position: absolute;
@@ -33,6 +33,8 @@
         width: 2.28vh;
         height: 2.28vh;
         margin-left: 2.347vw;
+        margin-top: px2vh(1);
+        margin-right: px2vw(10);
       }
     }
   }
@@ -46,15 +48,15 @@
     .event-content-left {
       display: flex;
       align-items: center;
-      justify-content: space-around;
-      width: 86%;
+      justify-content: space-between;
+      width: 80%;
+      margin-left: 6%;
       .group-left {
         width: 50%;
         padding: 0 3px;
-        float: left;
         display: flex;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: space-around;
         .group-team {
           display: flex;
           width: 65%;
@@ -66,16 +68,20 @@
             width: 60%;
           }
           .icon {
-            width: 40%;
+            width: px2vw(30);
+            height: px2vw(30);
             align-items: center;
             justify-content: center;
+            margin-left: 3px;
+            margin-right: 3px;
             img {
-              width: 4.483vh;
+              width: 100%;
+              height: 100%;
             }
           }
         }
         .odds {
-          width: 35%;
+          width: 30%;
           text-align: center;
           .odds-item {
             background: rgba(0, 0, 0, 0.3);
@@ -83,7 +89,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            @include borderAround-1px( 1px, rgba(255, 255, 255, 0.2));
+            @include border-1px(rgba(255, 255, 255, 0.2));
             .odds-num {
               color: #ffffff;
               font-size: 4.058vw
@@ -94,11 +100,10 @@
 
       .group-right {
         width: 50%;
-        padding: 0 3px;
-        float: right;
+        padding: 0 2px;
         display: flex;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: space-around;
         .group-team {
           display: flex;
           width: 65%;
@@ -110,16 +115,20 @@
             width: 60%;
           }
           .icon {
-            width: 40%;
+            width: px2vw(30);
+            height: px2vw(30);
             align-items: center;
             justify-content: center;
+            margin-left: 3px;
+            margin-right: 3px;
             img {
-              width: 4.483vh;
+              width: 100%;
+              height: 100%;
             }
           }
         }
         .odds {
-          width: 35%;
+          width: 30%;
           text-align: center;
           .odds-item {
             background: rgba(0, 0, 0, 0.3);
@@ -127,7 +136,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            @include borderAround-1px(1px, rgba(255, 255, 255, 0.2));
+            @include border-1px(rgba(255, 255, 255, 0.2));
             .odds-num {
               color: #ffffff;
               font-size: 4.058vw;
@@ -146,19 +155,19 @@
         position: relative;
         background: #db2f25;
         width: 85%;
-        padding: 4.5px 0 3px;
         height: 5.421vh;
         margin-right: 15%;
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
         flex-direction: column;
         .num {
           font-size: 3.478vw;
+
         }
         .text {
           font-size: 3.043vw;
-          margin-top: -0.408vh;
+          padding-bottom: px2vh(2);
         }
       }
     }

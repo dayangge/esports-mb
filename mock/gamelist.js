@@ -4,179 +4,201 @@ export default {
       setTimeout(() => {
         res.send(
           {
-    'success': 1,
+    'code': 0,
     'msg': '16ms',
     'data': [
       {
-        'ID': 10,
-        'Name': '刀塔II',
-        'Code': 'dota2',
-        'Cover': 'https://img.avia01.com/upload/201804/08142117a58f.png',
+        'game_id': 'e5a06e1d697c45e2824cc5d2ad0c8b96',
+        'name_cn': '刀塔II',
+        'name_en': 'dota2',
+        'logo': 'https://img.avia01.com/upload/201804/08142117a58f.png',
+        'match_count': 12,
+        'enable': true,
+        'sort':1
+      }, {
+        'game_id': "89591c4362ac457fa9b2562ba43d59c0",
+        'name_cn': '英雄联盟',
+        'name_en': 'LOL',
+        'logo': 'https://img.avia01.com/upload/201809/0712370353b5.jpeg',
+        'match_count': 12,
+        'enable': true,
+        'sort':1
+      }, {
+        'game_id': "b2d30527c8624cda88bfeb8381cc4d8f",
+        'name_cn': '反恐精英',
+        'name_en': 'cs',
+        'logo': 'https://img.avia01.com/upload/201804/08142101a2a8.png',
+        'match_count': 12,
+        'enable': true,
+        'sort':1
+      }, {
+        'game_id': "2f6832360c314844b632eecb09e812c1",
+        'name_cn': '王者荣耀',
+        'name_en': 'aok',
+        'logo': 'https://img.avia01.com/upload/201809/17013704496d.png',
+        'match_count': 12,
+        'enable': true,
+        'sort':1
+      }, {
+        'game_id':"58a9eae69ee142a9ade0ad87ccf3d039",
+        'name_cn': '绝地求生',
+        'name_en': 'PUBG',
+        'logo': 'https://img.avia01.com/upload/201804/081428128868.png',
+        'match_count': 12,
+        'enable': true,
+        'sort':1
+      }, {
+        'game_id': 2589,
+        'name_cn': '堡垒之夜',
+        'name_en': '堡垒之夜',
+        'logo': 'https://img.avia01.com/upload/201809/170829126f87.png',
+        'match_count': 12,
+        'enable': true,
+        'sort':1
+      }, {
+        'game_id':  "e63436487192443680b001d3b16d53ac",
+        'name_cn': '守望先锋',
+        'name_en': 'ow',
+        'logo': 'https://img.avia01.com/upload/201804/08142054167a.png',
+        'match_count': 12,
+        'enable': true,
+        'sort':1
+      }, {
+        'game_id': 2083,
+        'name_cn': '魔兽争霸',
+        'name_en': '',
+        'logo': 'https://img.avia01.com/upload/201810/292050484e53.png',
+        'match_count': 12,
+        'enable': true,
+        'sort':1
+      }, {
+        'game_id': 2085,
+        'name_cn': '星际争霸',
+        'name_en': '',
+        'logo': 'https://img.avia01.com/upload/201805/08191155a4d5.png',
+        'match_count': 12,
+        'enable': true,
+        'sort':1
+      }, {
+        'game_id': 2636,
+        'name_cn': '穿越火线',
+        'name_en': 'CF',
+        'logo': 'https://img.avia01.com/upload/201808/302058100d77.png',
+        'match_count': 12,
+        'enable': true,
+        'sort':1
+      }, {
+        'game_id': 2095,
+        'name_cn': '风暴英雄',
+        'name_en': 'Heroes',
+        'logo': 'https://img.avia01.com/upload/201809/17083428da7c.png',
+        'match_count': 12,
+        'enable': true,
+        'sort':1
+      }, {
+        'game_id': 2706,
+        'name_cn': 'QQ飞车',
+        'name_en': '',
+        'logo': 'https://img.avia01.com/upload/201809/2321475956b9.png',
+        'match_count': 12,
+        'enable': true,
+        'sort':1
+      }, {
+        'game_id': 2321,
+        'name_cn': 'NBA2K',
+        'name_en': 'NBA',
+        'logo': 'https://img.avia01.com/upload/201806/16214709119f.png',
+        'match_count': 12,
+        'enable': true,
+        'sort':1
+      }, {
+        'game_id': 2333,
+        'name_cn': 'FIFA Online',
+        'name_en': 'FIFA',
+        'logo': 'https://img.avia01.com/upload/201806/20122917fe40.png',
+        'match_count': 12,
+        'enable': true,
+        'sort':1
+      }, {
+        'game_id': 2084,
+        'name_cn': '炉石传说',
+        'name_en': '',
+        'logo': 'https://img.avia01.com/upload/201809/17012454475d.png',
         'Count': 12,
       }, {
-        'ID': 2,
-        'Name': '英雄联盟',
-        'Code': 'LOL',
-        'Cover': 'https://img.avia01.com/upload/201809/0712370353b5.jpeg',
-        'Count': 44,
+        'game_id': 2362,
+        'name_cn': '火箭联盟',
+        'name_en': '',
+        'logo': 'https://img.avia01.com/upload/201806/272053191ddd.png',
+        'match_count': 12,
+        'enable': true,
+        'sort':1
       }, {
-        'ID': 2025,
-        'Name': '反恐精英',
-        'Code': 'cs',
-        'Cover': 'https://img.avia01.com/upload/201804/08142101a2a8.png',
-        'Count': 16,
+        'game_id': 2322,
+        'name_cn': '彩虹6号',
+        'name_en': '',
+        'logo': 'https://img.avia01.com/upload/201809/20054505c9bb.png',
+        'match_count': 12,
+        'enable': true,
+        'sort':1
       }, {
-        'ID': 2040,
-        'Name': '王者荣耀',
-        'Code': 'gok',
-        'Cover': 'https://img.avia01.com/upload/201809/17013704496d.png',
-        'Count': 4,
+        'game_id': 2948,
+        'name_cn': '神器',
+        'name_en': '神器',
+        'logo': 'https://img.avia01.com/upload/201811/302051030eec.png',
+        'match_count': 12,
+        'enable': true,
+        'sort':1
       }, {
-        'ID': 1,
-        'Name': '绝地求生',
-        'Code': 'PUBG',
-        'Cover': 'https://img.avia01.com/upload/201804/081428128868.png',
-        'Count': 3,
+        'game_id': 2661,
+        'name_cn': '梦三国2',
+        'name_en': '',
+        'logo': 'https://img.avia01.com/upload/201809/09224516d4cf.png',
+        'match_count': 12,
+        'enable': true,
+        'sort':1
       }, {
-        'ID': 2589,
-        'Name': '堡垒之夜',
-        'Code': '堡垒之夜',
-        'Cover': 'https://img.avia01.com/upload/201809/170829126f87.png',
-        'Count': 0,
+        'game_id': 2653,
+        'name_cn': '皇室战争',
+        'name_en': '皇室战争',
+        'logo': 'https://img.avia01.com/upload/201809/080140423c5e.png',
+        'match_count': 12,
+        'enable': true,
+        'sort':1
       }, {
-        'ID': 2027,
-        'Name': '守望先锋',
-        'Code': 'ow',
-        'Cover': 'https://img.avia01.com/upload/201804/08142054167a.png',
-        'Count': 14,
+        'game_id': 2776,
+        'name_cn': '雷神之锤',
+        'name_en': '雷神之锤',
+        'logo': 'https://img.avia01.com/upload/201810/07211816277a.png',
+        'match_count': 12,
+        'enable': true,
+        'sort':1
       }, {
-        'ID': 2083,
-        'Name': '魔兽争霸',
-        'Code': '',
-        'Cover': 'https://img.avia01.com/upload/201810/292050484e53.png',
-        'Count': 0,
+        'game_id': 2867,
+        'name_cn': '魔兽世界',
+        'name_en': '魔兽世界',
+        'logo': 'https://img.avia01.com/upload/201810/29205100ba64.png',
+        'match_count': 12,
+        'enable': true,
+        'sort':1
       }, {
-        'ID': 2085,
-        'Name': '星际争霸',
-        'Code': '',
-        'Cover': 'https://img.avia01.com/upload/201805/08191155a4d5.png',
-        'Count': 1,
-      }, {
-        'ID': 2636,
-        'Name': '穿越火线',
-        'Code': 'CF',
-        'Cover': 'https://img.avia01.com/upload/201808/302058100d77.png',
-        'Count': 1,
-      }, {
-        'ID': 2095,
-        'Name': '风暴英雄',
-        'Code': 'Heroes',
-        'Cover': 'https://img.avia01.com/upload/201809/17083428da7c.png',
-        'Count': 0,
-      }, {
-        'ID': 2706,
-        'Name': 'QQ飞车',
-        'Code': '',
-        'Cover': 'https://img.avia01.com/upload/201809/2321475956b9.png',
-        'Count': 0,
-      }, {
-        'ID': 2321,
-        'Name': 'NBA2K',
-        'Code': 'NBA',
-        'Cover': 'https://img.avia01.com/upload/201806/16214709119f.png',
-        'Count': 9,
-      }, {
-        'ID': 2333,
-        'Name': 'FIFA Online',
-        'Code': 'FIFA',
-        'Cover': 'https://img.avia01.com/upload/201806/20122917fe40.png',
-        'Count': 0,
-      }, {
-        'ID': 2084,
-        'Name': '炉石传说',
-        'Code': '',
-        'Cover': 'https://img.avia01.com/upload/201809/17012454475d.png',
-        'Count': 12,
-      }, {
-        'ID': 2362,
-        'Name': '火箭联盟',
-        'Code': '',
-        'Cover': 'https://img.avia01.com/upload/201806/272053191ddd.png',
-        'Count': 0,
-      }, {
-        'ID': 2322,
-        'Name': '彩虹6号',
-        'Code': '',
-        'Cover': 'https://img.avia01.com/upload/201809/20054505c9bb.png',
-        'Count': 0,
-      }, {
-        'ID': 2948,
-        'Name': '神器',
-        'Code': '神器',
-        'Cover': 'https://img.avia01.com/upload/201811/302051030eec.png',
-        'Count': 0,
-      }, {
-        'ID': 2661,
-        'Name': '梦三国2',
-        'Code': '',
-        'Cover': 'https://img.avia01.com/upload/201809/09224516d4cf.png',
-        'Count': 0,
-      }, {
-        'ID': 2653,
-        'Name': '皇室战争',
-        'Code': '皇室战争',
-        'Cover': 'https://img.avia01.com/upload/201809/080140423c5e.png',
-        'Count': 0,
-      }, {
-        'ID': 2776,
-        'Name': '雷神之锤',
-        'Code': '雷神之锤',
-        'Cover': 'https://img.avia01.com/upload/201810/07211816277a.png',
-        'Count': 0,
-      }, {
-        'ID': 2867,
-        'Name': '魔兽世界',
-        'Code': '魔兽世界',
-        'Cover': 'https://img.avia01.com/upload/201810/29205100ba64.png',
-        'Count': 0,
-      }, {
-        'ID': 2106,
-        'Name': '使命召唤',
-        'Code': '',
-        'Cover': 'https://img.avia01.com/upload/201805/17155005d77f.png',
-        'Count': 4,
-      }, {
-        'ID': 2325,
-        'Name': '拳击之夜',
-        'Code': 'Fight Night',
-        'Cover': 'https://img.avia01.com/upload/201806/16175319ff4a.png',
-        'Count': 0,
-      }, {
-        'ID': 2324,
-        'Name': '坦克世界',
-        'Code': '',
-        'Cover': 'https://img.avia01.com/upload/201806/161749004331.png',
-        'Count': 0,
-      }, {
-        'ID': 2323,
-        'Name': '街头霸王5',
-        'Code': '',
-        'Cover': 'https://img.avia01.com/upload/201806/16174704f920.png',
-        'Count': 0,
-      }, {
-        'ID': 3138,
-        'Name': '传说对决',
-        'Code': '传说对决',
-        'Cover': 'https://img.avia01.com/upload/201902/272241290a23.png',
-        'Count': 0,
-      }, {
-        'ID': 2920,
-        'Name': '地下城与勇士',
-        'Code': 'DNF',
-        'Cover': 'https://img.avia01.com/upload/201811/151359553297.png',
-        'Count': 0,
+        'game_id': 2106,
+        'name_cn': '使命召唤',
+        'name_en': '',
+        'logo': 'https://img.avia01.com/upload/201805/17155005d77f.png',
+        'match_count': 12,
+        'enable': true,
+        'sort':1
+      },  {
+        'game_id': 2920,
+        'name_cn': '地下城与勇士',
+        'name_en': 'DNF',
+        'logo': 'https://img.avia01.com/upload/201811/151359553297.png',
+        'match_count': 12,
+        'enable': true,
+        'sort':1
       }
     ]
         })
-      }, 2000)}
+      }, 1000)}
 }

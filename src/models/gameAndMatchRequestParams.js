@@ -2,16 +2,16 @@ export default {
   namespace: 'gameAndMatchRequestParams',
 
   state: {
-      gameID:1,
+      game_id:1,
       matchType:1
   },
 
   effects: {
     *modifyGameType({payload}, { call, put, select }) {
-      const { gameID } = payload;
+      const { game_id } = payload;
       yield put({
         type: 'saveGameTypeParams',
-        payload: gameID,
+        payload: game_id,
       });
     },
     *modifyMatchType({payload}, { call, put, select }) {
@@ -27,7 +27,7 @@ export default {
     saveGameTypeParams(state, { payload }) {
       return {
         ...state,
-        gameID: payload,
+        game_id: payload,
       };
     },
     saveMatchTypeParams(state, { payload }) {

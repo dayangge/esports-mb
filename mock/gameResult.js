@@ -1,6 +1,6 @@
 export default {
   'GET /api/gameResult': {
-    'success': 1,
+    'code': 0,
     'msg': '35ms',
     'data': {
       'RecordCount': 23555,

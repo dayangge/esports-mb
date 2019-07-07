@@ -1,4 +1,5 @@
-
+@import "../../../../styles/utils";
+@import "../../../../styles/common";
 .index {
   animation: slideLeft .3s forwards;
   position: relative;
@@ -12,19 +13,10 @@
   color: #ffffff;
   background: #1e1f25;
   .top-fixed{
-    background: #1e1f25;
-    position: relative;
-    top: 0;
-    z-index: 6;
-    width: 100%;
-    height: 5vh;
+    @include topHeader;
     .top-header {
-      background: linear-gradient(to right, #264760 0%, #203243 25%, #18212b 50%, #33181d 75%, #522025 100%);
-      box-shadow: inset 0px -10px 20px -10px rgba(255, 255, 255, 0.4);
-      height: 5vh;
-      display: flex;
-      z-index: 10;
-      .back {
+      @include headerNav;
+      .user {
         width: 10%;
         margin: 0 auto;
         text-align: center;
@@ -32,7 +24,16 @@
         align-items: center;
         justify-content: center;
         position: relative;
-        height: 5vh;
+        height: $topHeight;
+        .user-icon{
+          width: px2vw(14);
+          height: px2vw(16);
+          background-image: image-set(
+              url('../../../../assets/gerenzhongxin@2x.png') 2x,
+              url('../../../../assets/gerenzhongxin@3x.png') 3x
+          );
+          background-size: contain;
+        }
       }
       .top-header-main {
         width: 80%;
@@ -41,57 +42,121 @@
         align-items: center;
         justify-content: center;
         position: relative;
-        height: 5vh;
+        height: $topHeight;
         .header-main-name {
           line-height: 5vh;
           font-size: 2.5vh;
           color: white;
         }
       }
+      .info {
+        width: 10%;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: $topHeight;
+        .bet-info{
+          width: px2vw(20);
+          height: px2vw(18);
+          background-image: image-set(
+              url('../../../../assets/youxijilu@2x.png') 2x,
+              url('../../../../assets/youxijilu@3x.png') 3x
+          );
+          background-size: contain;
+        }
+      }
     }
-    .info {
-      width: 10%;
-      margin: 0 auto;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      height: 5vh;
-    }
+
   }
   .game-tab {
-    background: #1e1f25;
     position: relative;
-    z-index: 6;
+    z-index: 0;
     width: 100%;
     font-size: 2vw;
-    height: 10vh;
+    height: 9vh;
     .game-tab-main {
-      margin-top: 1vw;
+      padding-top: px2vh(4);
       padding-left: 3.6vw;
       padding-right: 3.6vw;
-      padding-bottom: 1.5vh;
     }
   }
   .game-result {
     background: #1e1f25;
     position: relative;
-    z-index: 6;
-    width: 100%;
+    z-index: 0;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: px2vh(4);
     font-size: 2vw;
-    height: 5vh;
-    .result-button {
-      background: linear-gradient(to bottom, #4f5ca2 0%, #3a4372 100%);
-      padding: 5.16px 0;
-      border-radius: 14.04px;
-      width: 25%;
+    height: 4vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    .select-event{
+      width: 54%;
+      border-radius: 4px;
+      height: 4vh;
+      font-size: px2vh(14);
+      line-height: 4.5vh;
+      color: #4d4f62;
+      background-color: transparent;
+      overflow: hidden;
+      @include border-1px(#6f6b34);
       display: flex;
       align-items: center;
-      justify-content: center;
-      .text {
-        font-size: 11.96px
+      justify-content: space-between;
+      .left{
+        width:16% ;
+        height: 4vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .icon{
+          width: px2vw(14);
+          height: px2vw(14);
+          background-image: image-set(
+              url('../../../../assets/shaixuan@2x.png') 2x,
+              url('../../../../assets/shaixuan@3x.png') 3x
+          );
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
       }
+      .text{
+        width: 68%;
+        text-align: left;
+      }
+      .arrow{
+        width: 16%;
+        background-color: #3a3b4c;
+        height: 4vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .icon{
+          width: px2vw(10);
+          height: px2vw(7);
+          background-image: image-set(
+              url('../../../../assets/xialaanniu@2x.png') 2x,
+              url('../../../../assets/xialaanniu@3x.png') 3x
+          );
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+    .balance{
+      width: 40%;
+      height: 4vh;
+      background-color: #3a3b4c;
+      color: #ffca3c;
+      font-size: px2vh(14);
+      line-height: 4vh;
+      text-align: center;
     }
   }
   .main {
@@ -104,6 +169,225 @@
       text-align: center;
       font-size: 16px;
     }
+  }
+}
+
+.user-center{
+  height: 100%;
+  width: 70vw;
+  background-color:#191919;
+  font-size: px2vw(16);
+  line-height: 2vw;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  .name{
+    width: 100%;
+    height: px2vh(36);
+    background-color:#1e1f25;
+    text-align: center;
+    margin-top: px2vh(10);
+    margin-bottom: px2vh(10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .log{
+    width: 100%;
+    height: px2vh(36);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include border-bottom-1px(#000);
+    background-color:#1e1f25 ;
+    .left{
+      width: 40%;
+      padding-left: 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      .balance{
+        width: px2vw(14);
+        height: px2vw(16);
+        background-image: image-set(
+            url('../../../../assets/yue@2x.png') 2x,
+            url('../../../../assets/yue@3x.png') 3x
+        );
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      .zhangbian{
+        width: px2vw(14);
+        height: px2vw(16);
+        background-image: image-set(
+            url('../../../../assets/zhangbianjilu@2x.png') 2x,
+            url('../../../../assets/zhangbianjilu@3x.png') 3x
+        );
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      .game-log{
+        width: px2vw(14);
+        height: px2vw(16);
+        background-image: image-set(
+            url('../../../../assets/youxidating@2x.png') 2x,
+            url('../../../../assets/youxidating@3x.png') 3x
+        );
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      .rules{
+        width: px2vw(14);
+        height: px2vw(15);
+        background-image: image-set(
+            url('../../../../assets/guizeshuoming@2x.png') 2x,
+            url('../../../../assets/guizeshuoming@3x.png') 3x
+        );
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+    .right{
+      width: 10%;
+      color: white;
+      padding-right: 5%;
+    }
+  }
+
+}
+.modal-game-header{
+  color: white;
+  height: 15vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include border-bottom-1px(#fff);
+  font-size: px2vw(14);
+  padding: px2vh(6) px2vw(4) ;
+  .game-name{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4vh;
+    .left{
+
+    }
+    .right{
+
+    }
+  }
+  .game-button{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 6vh;
+    .left{
+      width: 48%;
+      text-align: center;
+      height: px2vh(30);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #3e3f6d;
+    }
+    .right{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48%;
+      text-align: center;
+      height: px2vh(30);
+      background-color: #3a3b4c;
+      color: #c2c2c2;
+    }
+  }
+  .game-select{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: px2vh(4);
+    height: 5vh;
+    .left{
+
+    }
+    .right{
+
+    }
+  }
+}
+.modal-all-select{
+  width: 86%;
+  margin:  0 auto;
+  height: 40vh;
+  overflow: scroll;
+  margin-top: px2vh(6);
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  color: white;
+  .line{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4vh;
+    width: 100%;
+    .left{
+      width: 60%;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      flex-direction: row;
+      .selected{
+        display: block;
+        width: px2vw(12);
+        height: px2vw(12);
+        background-color: #3e3f6d;
+        border-radius: 50%;
+        margin-right: 4px;
+        margin-left: 2px;
+        &.active{
+          background-color:#ff8a00 ;
+        }
+      }
+
+    }
+    .right{
+
+    }
+  }
+
+}
+.modal-ok{
+  width: 86%;
+  margin:  0 auto;
+  height: 5vh;
+  overflow: scroll;
+  margin-top: px2vh(6);
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  color: white;
+  .button{
+    width: 100%;
+    height: 4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #3e3f6d;
+    border-radius: 4px;
   }
 }
 

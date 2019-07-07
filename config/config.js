@@ -9,6 +9,7 @@ export default {
       dva: true,
       dynamicImport: false,
       dll: true,
+      fastClick: true,
       routes: {
         exclude: [
           /model\.(j|t)sx?$/,

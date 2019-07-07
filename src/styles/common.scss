@@ -2,3 +2,74 @@ $normal-color: #d9d9d9;
 $white: #fff;
 $black: #000;
 $bg-color: #e43342;
+$topHeight: 6vh;
+
+$matchDetailBg1:#1e1f25;
+$matchDetailBg2:#21283a;
+$matchContentBg:#26263e;
+$topBg:linear-gradient(to bottom, #4b4d64, #1a1a20);
+
+$bg-lol: linear-gradient(to right, #4858a6, #2a304a);
+$bg-dota2: linear-gradient(to right, #812f2b, #412526);
+$bg-csgo: linear-gradient(to right, #b17c29, #6e4300);
+$bg-ow: linear-gradient(to right, #555964, #2d2e30);
+$bg-gok: linear-gradient(to right, #915026, #632d11);
+$bg-pubg: linear-gradient(to right, #6b562b, #4a3e24);
+
+@mixin topHeader($height:6vh){
+  position: relative;
+  top: 0;
+  z-index: 6;
+  width: 100%;
+  height: $height;
+  background: $topBg;
+}
+@mixin headerNav($height:7vh){
+  height: $height;
+  display: flex;
+  z-index: 10;
+}
+
+
+
+
+@mixin betBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  transition: all .5s;
+  cursor: pointer;
+  background: transparent;
+  position: absolute;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 10%;
+}
+
+@mixin increase($top: -22px,$left: 18px) {
+  top: $top;
+  left: $left;
+  color: #FF1E1E;
+  font-size: 16px;
+  opacity: 0;
+  -webkit-animation: flash 1s linear 6 alternate;
+  animation: flash 1s linear 6 alternate;
+  position: absolute;
+}
+
+@mixin reduce($top: 22px,$left: 18px) {
+  top: $top;
+  left: $left;
+  color: #27ff33;
+  font-size: 16px;
+  opacity: 0;
+  -webkit-animation: flash 1s linear 6 alternate;
+  animation: flash 1s linear 6 alternate;
+  position: absolute;
+}
+

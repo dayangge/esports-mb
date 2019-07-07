@@ -1,179 +1,192 @@
 @import "../../../../../styles/utils";
-.bet-placement-box {
-  padding: 0 3vw;
-  .bet-placement {
+@import "../../../../../styles/common";
+
+.bet{
+  background: #1e1f25;
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+  overflow-y: auto;
+  .handicap-tabs-box {
+    position: relative;
+    width: 100%;
+    height: 6vh;
+    padding: 0 0;
     color: white;
-    &:nth-last-child(1){
-      padding-bottom: 12.36vh;
+    background: linear-gradient(to bottom, #46475a 0%, #272736 100%);
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    text-align: center;
+    overflow-x:scroll;
+      .round {
+        font-size: px2vw(14);
+        width: 15%;
+        height: 6vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:nth-child(1){
+          margin-left: px2vw(10);
+        }
+        &.active{
+          border-bottom: 2px solid #d0b70c;
+          font-weight: 700;
+        }
+      }
+  }
+  .round{
+    .round-tab{
+      width: 80%;
+      margin: 0 auto;
+      padding-top: 10px;
+      padding-bottom: 6px;
+      color: white;
+      .item{
+        box-sizing: border-box;
+        text-align: center;
+        display: inline-block;
+        cursor: pointer;
+        padding: 3px 0;
+        letter-spacing: 1px;
+        .text{
+          box-sizing: content-box;
+          font-size: 14px;
+          line-height: 16px;
+          padding: 0 10px;
+          border-right:1px solid #53678c;
+          &:first-child{
+            border-left:1px solid #53678c;
+          }
+        }
+      }
+
     }
-    .bet-round {
-      background: linear-gradient(to right, #264760 0%, #203243 25%, #18212b 50%, #33181d 75%, #522025 100%);
-      border: 1px solid #254055;
-      padding: 0 2.174vw;
-      margin-bottom: 1.222vh;
-      min-height: 5.38vh;
-      display: flex;
-      justify-content: space-between;
+  }
+  .list{
+    width: 90%;
+    margin: 0 auto;
+    .item{
+      color: #fff;
+      justify-content: flex-start;
       align-items: center;
-      border-radius: 1vh;
-      .round-text {
-        font-size: 3.768vw;
-      }
-      .round-arrow {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        .icon {
-          font-size: 3vw;
-        }
-      }
-    }
-    .bet-expand{
-      .bet-expand-info{
-        border-radius: px2vw(9);
-        background-clip: padding-box;
-        margin-bottom: px2vh(9);
-        padding: px2vw(9);
-        border: 1px solid rgba(111, 90, 52, 0.79);
-        .title{
-          color: #ffffff;
-          font-size: px2vw(13.8);
-          padding-bottom: px2vw(9);
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          .handicap{
-            display: flex;
-            align-items: center;
-            .handicap-icon{
-              background: #5b5c65;
-              border-radius: px2vw(2.4);
-              width: px2vw(4.8);
-              height: px2vh(15.6);
-              margin: 0 px2vw(10.5) 0 px2vw(6);
-            }
-            .handicap-name{
-              font-size: px2vw(13.8);
-            }
-          }
-        }
-      }
-      .bet-item{
-        background: linear-gradient(to right, #264760 0%, #203243 25%, #18212b 50%, #33181d 75%, #522025 100%);
-        min-height: px2vh(43.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      flex: 1;
+      display: flex;
+      margin-bottom: px2vh(8);
+      .table-item{
         width: 100%;
-        .team-left{
-          margin-right: 1%;
-          width: 49%;
-          position: relative;
+        padding: px2vh(10) px2vw(4);
+        @include border-1px(#6f6b34,8px);
+        .bet-name{
+          width: 80%;
+          margin: 0 auto;
+          font-size: px2vw(14);
+          margin-bottom: px2vh(6);
+          text-align: center;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          float: left;
-          .team-logo{
-            background: #225f8b;
-            font-size: px2vw(12);
-            height: px2vh(43.2);
-            width: 20%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            float: left;
-            img{
-              width: 100%;
-            }
+          .line{
+            flex-grow: 1;
+            height: 2px;
+            background-image: image-set(
+                url('../../../../../assets/wodefengexian@2x.png') 2x,
+                url('../../../../../assets/wodefengexian@3x.png') 3x
+            );
+            background-size: cover;
+            background-repeat: no-repeat;
           }
-          .team-name{
-            font-size: px2vw(14.4);
-            width: 40%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            float: left;
+          .name{
+            padding: 0 px2vw(10);
           }
-          .team-odds{
-            width: 40%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            float: left;
-            position: relative;
-            padding: px2vw(2.34);
-            .odds{
-              background: #4195c1;
-              position: relative;
-              overflow: hidden;
-              height: px2vh(27.04);
-              width: px2vw(50.96);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              text-align: center;
-              .num{
-                font-size: px2vw(14.56);
-              }
-            }
-          }
+
+
         }
-        .team-right{
-          margin-left: 1%;
-          width: 49%;
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          float: right;
-          .team-logo{
-            background: #225f8b;
-            font-size: px2vw(12);
-            height: px2vh(43.2);
-            width: 20%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            float: right;
-            img{
-              width: 100%;
-            }
-          }
-          .team-name{
-            font-size: px2vw(14.4);
-            width: 40%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            float: right;
-          }
-          .team-odds{
-            width: 40%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            float: right;
+        .bet-content{
+         width: 96%;
+          margin: 0 auto;
+          .pankou-row{
+            width: 48%;
+            height: px2vh(46);
+            float: left;
+            bottom: 0;
+            font-size: 0;
             position: relative;
-            padding: px2vw(2.34);
-            .odds{
-              background: #4195c1;
-              position: relative;
-              overflow: hidden;
-              height: px2vh(27.04);
-              width: px2vw(50.96);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              text-align: center;
-              .num{
-                font-size: px2vw(14.56);
+            background-color: #100d12;
+            border-radius: 8px;
+            margin-bottom: px2vh(4);
+            @include border-1px(#6f6b34,8px);
+            &:nth-child(even){
+              float: right;
+              .pankou-name{
+                margin-top: px2vh(8.5);
+                width: px2vw(50);
+                height: px2vh(28);
+                line-height: px2vh(28);
+                background-color: #4165c1;
+                border-radius: 6px;
+                float: left;
+                margin-left: px2vw(10);
               }
+              .pankou-result{
+                line-height: px2vh(46);
+                float: right;
+              }
+
+            }
+            span{
+              box-sizing: border-box;
+              width: 50%;
+              vertical-align: middle;
+              display: inline-block;
+              text-align: center;
+              font-size: px2vw(14);
+              line-height: px2vh(28);
+              position: relative;
+            }
+            .pankou-name{
+              width: px2vw(50);
+              height: px2vh(28);
+              margin-top: px2vh(8.5);
+              line-height: px2vh(28);
+              background-color: #BA4142;
+              border-radius: 6px;
+              float: right;
+              margin-right: px2vw(10);
+            }
+            .pankou-result{
+              line-height: px2vh(46);
             }
           }
         }
       }
     }
   }
+}
+
+
+/*箭头动画*/
+@-webkit-keyframes flash {
+  from, 50%, to {
+    opacity: 1;
+  }
+
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+@keyframes flash {
+  from, 50%, to {
+    opacity: 1;
+  }
+
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+.flash {
+  -webkit-animation-name: flash;
+  animation-name: flash;
 }

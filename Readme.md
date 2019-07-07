@@ -1,19 +1,19 @@
-### 推荐安装yarn
+### 安装npm
 1. 确保 node 版本是 8.10 或以上
-2. npm i yarn -g
+
 
 ### 快速开始
 
 进入目录安装依赖:
 
 ```bash
-yarn install
+npm install
 ```
 
 启动服务.
 
 ```bash
-$ yarn start
+$ npm start
 ```
 
 编译.

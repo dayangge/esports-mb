@@ -1,5 +1,6 @@
-import { gameList }   from 'esports-core/services/api';
-import { normalizeData }  from 'esports-core/utils/util';
+import { gameList } from 'esports-core/services/api';
+import { normalizeData } from 'esports-core/utils/util';
+
 
 export default {
   namespace: 'gameList',
@@ -12,11 +13,14 @@ export default {
   },
 
   effects: {
-    *fetchGameList({payload}, { call, put, select }) {
-      console.log(normalizeData);
+    *fetchGameList({payload}, { call, put }) {
       let data = yield call(gameList,payload);
-      console.log(payload);
-      data = normalizeData(data, 'ID');
+      data = normalizeData(data, 'game_id');
+      const gameData = JSON.parse(JSON.stringify(data.list));
+      yield put({
+        type: 'gameDB/saveGameData',
+        payload: gameData,
+      });
       yield put({
         type: 'saveGameList',
         payload: data,

@@ -1,4 +1,4 @@
-import  { getOddsList }  from 'esports-core/services/api';
+import { getOddsList } from 'esports-core/services/api';
 
 export default {
   namespace: 'oddsList',
@@ -15,13 +15,13 @@ export default {
       );
       for(let key in oldData){
         if(oldData.hasOwnProperty(key)){
-          if(oldData[key].Odds > data[key].Odds){
+          if(oldData[key].odds > data[key].odds){
             data[key].increase = -1
           }
-          if(oldData[key].Odds < data[key].Odds){
+          if(oldData[key].odds < data[key].odds){
             data[key].increase = 1
           }
-          if(oldData[key].Odds === data[key].Odds){
+          if(oldData[key].odds === data[key].odds){
             data[key].increase = 0
           }
         }
