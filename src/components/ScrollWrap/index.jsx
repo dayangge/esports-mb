@@ -7,6 +7,8 @@ class ScrollWrap extends PureComponent {
 
   componentDidMount() {
     const { wrapId, getRef, isX, isY,fn,isShowBar} = this.props;
+    /*将this暴露给父组件*/
+    this.props.onScrollWrapRef !== undefined && this.props.onScrollWrapRef(this);
     if (getRef) {
       getRef(this.myRef);
     }
@@ -33,21 +35,29 @@ class ScrollWrap extends PureComponent {
     }
    if(typeof fn === 'function') {
      this.scroll.on('scroll', fn);
-     document.addEventListener('resize',
-       this.scrollRefresh()
-     )
    }
+    document.addEventListener('resize',
+      this.scrollRefresh()
+    )
   }
+
   componentDidUpdate() {
     if(this.height !== this.myRef.clientHeight){
       this.height = this.myRef.clientHeight;
       this.scrollRefresh()
     }
   }
+
   componentWillUnmount() {
     document.removeEventListener('resize', this.scrollRefresh)
   }
+
   scrollRefresh =() => {
+    this.scroll.refresh()
+  };
+
+  scrollToTop =() => {
+    this.scroll.scrollTo(0,0);
     this.scroll.refresh()
   };
 
@@ -61,7 +71,9 @@ class ScrollWrap extends PureComponent {
       >
         <div className="wrap" ref={ref => {
           this.myRef = ref;
-        }} style={{width: wrapWidth}}>{children}</div>
+        }} style={{width: wrapWidth}}>
+          {children}
+        </div>
       </div>
     );
   }

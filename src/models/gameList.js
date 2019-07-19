@@ -1,5 +1,6 @@
 import { gameList } from 'esports-core/services/api';
 import { normalizeData } from 'esports-core/utils/util';
+import { getStorage, setStorage, addCoverObject } from 'esports-core/utils/localStoragePloyfill';
 
 
 export default {
@@ -15,12 +16,14 @@ export default {
   effects: {
     *fetchGameList({payload}, { call, put }) {
       let data = yield call(gameList,payload);
+      if(data === undefined){return}
       data = normalizeData(data, 'game_id');
       const gameData = JSON.parse(JSON.stringify(data.list));
       yield put({
         type: 'gameDB/saveGameData',
         payload: gameData,
       });
+      setStorage('gameDB',gameData);
       yield put({
         type: 'saveGameList',
         payload: data,

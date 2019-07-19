@@ -11,6 +11,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import './index.less';
 
 export default class BasicLayout extends PureComponent {
+
   render() {
    const {children, come, clsName} = this.props;
     return (

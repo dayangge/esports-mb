@@ -1,4 +1,4 @@
-import { fetchBetOrder } from 'esports-core/services/api';
+import { postBetOrder } from 'esports-core/services/api';
 
 export default {
   namespace: 'betOrders',
@@ -8,13 +8,14 @@ export default {
   },
 
   effects: {
-    *fetchBetOrder({ payload }, { call, put, select }) {
-      let data = yield call(fetchBetOrder, payload);
-      console.log(data)
+    *postBetOrder({ payload, callback }, { call, put, select }) {
+      const orders = payload;
       yield put({
         type: 'save',
-        payload: data,
-      })
+        payload: orders,
+      });
+      let data = yield call(postBetOrder, orders);
+      if (callback) callback(data);
     },
   },
 

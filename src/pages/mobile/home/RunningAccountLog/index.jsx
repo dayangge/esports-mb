@@ -7,13 +7,13 @@ import styles from './index.scss';
 import moment from 'moment';
 import { DatePicker } from 'antd-mobile';
 import ScrollWrap from '../../../../components/ScrollWrap';
+import zhCn from 'antd-mobile/lib/date-picker/locale/zh_CN';
 import EventInfo from '../GamePage/MatchInfo';
 
 const nowTimeStamp = Date.now();
 const now = new Date(nowTimeStamp);
 const startTime = new Date(nowTimeStamp - 1000*60*60*24*7);
 const startDate = new Date(startTime);
-
 
 @connect(({ runningAccountLog, loading }) => ({
   runningAccountLog,
@@ -28,7 +28,7 @@ class RunningAccountTable extends Component {
     pagination: {
       total:0,
       current: 1,
-      pageSize:10
+      pageSize:20
     },
     isShowIndex: -1
   };
@@ -49,6 +49,25 @@ class RunningAccountTable extends Component {
       },
     });
   }
+
+  fetchRunningAccount = () => {
+    const {startDate, endDate} = this.state;
+    const { dispatch } = this.props;
+    console.log(startDate, endDate);
+    dispatch({
+      type: 'runningAccountLog/fetchRunningAccountLog',
+      callback: response => {
+        const { RecordCount, PageIndex, PageSize } = response;
+        this.setState({
+          pagination: {
+            total: RecordCount,
+            current: PageIndex,
+            PageSize,
+          },
+        });
+      },
+    });
+  };
 
   goBack = () => {
     const{ history } = this.props;
@@ -86,8 +105,13 @@ class RunningAccountTable extends Component {
               mode="date"
               title="选择开始查询日期"
               extra="Optional"
+              locale={zhCn}
               value={this.state.startDate}
-              onOk={date => this.setState({ startDate: date, startDateVisible: false })}
+              onOk={date => {this.setState({ startDate: date, startDateVisible: false });
+                this.fetchRunningAccount()
+              }
+
+              }
               onDismiss={() => this.setState({ visible: false })}
             />
           </div>
@@ -98,15 +122,17 @@ class RunningAccountTable extends Component {
                   onClick={() => this.setState({ endDateVisible: true })}
             >
               {moment(this.state.endDate).format("YYYY-MM-DD")}
-
             </span>
             <DatePicker
               visible={this.state.endDateVisible}
               mode="date"
               title="选择结束查询日期"
               extra="Optional"
+              locale={zhCn}
               value={this.state.satrtDate}
-              onOk={date => this.setState({ endDate: date, endDateVisible: false })}
+              onOk={date => {this.setState({ endDate: date, endDateVisible: false });
+                this.fetchRunningAccount()
+              }}
               onDismiss={() => this.setState({ visible: false })}
             />
           </div>
@@ -116,7 +142,7 @@ class RunningAccountTable extends Component {
             ref={this.myRef}
             wrapId="game-wrap"
             wrapClass="log-wrapper"
-            height="75vh"
+            height="88vh"
             isX={false}
             isY={true}
             fn={this.scrollLoadGame}
@@ -133,7 +159,6 @@ class RunningAccountTable extends Component {
                 </div>
               </div>
             ))}
-
           </ScrollWrap>
         </div>
       </div>

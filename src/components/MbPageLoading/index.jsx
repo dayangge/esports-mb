@@ -21,7 +21,6 @@ export default () => (
       }}
     >
       <ActivityIndicator animating size="large" />
-      <span style={{ marginTop: 8 }}>加载中...</span>
     </div>
   </div>
 );

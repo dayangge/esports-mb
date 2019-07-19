@@ -268,6 +268,29 @@ td{
   transform: translateY(0);
 }
 
+/*由下至上滑动*/
+.downSlides-enter {
+  transform: translateY(100%);
+}
+.downSlides-enter-active {
+  transform: translateY(0);
+  transition: all 400ms;
+}
+.downSlides-enter-done {
+  transform: translateY(0);
+  transition: all 400ms;
+}
+.downSlides-exit {
+  transform: translateY(0);
+}
+.downSlides-exit-active {
+  transform: translateY(100%);
+  transition: all 400ms;
+}
+.downSlides-exit-done {
+  transform: translateY(100%);
+}
+
 /*由右至左100%滑动*/
 .rightToLeftSlide100-enter {
   transform: translateX(-100%);

@@ -1,6 +1,7 @@
+@import "../../../../../styles/common";
 @import "../../../../../styles/utils";
 .event-item {
-  margin-bottom: 1.427vh;
+  margin-bottom: px2vh(2);
   width: 100%;
   height: 11.74vh;
   .event-header {
@@ -92,7 +93,7 @@
             @include border-1px(rgba(255, 255, 255, 0.2));
             .odds-num {
               color: #ffffff;
-              font-size: 4.058vw
+              font-size: 3.5vw
             }
           }
         }
@@ -139,7 +140,7 @@
             @include border-1px(rgba(255, 255, 255, 0.2));
             .odds-num {
               color: #ffffff;
-              font-size: 4.058vw;
+              font-size: 3.5vw;
             }
           }
         }

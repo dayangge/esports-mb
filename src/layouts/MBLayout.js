@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import NProgress from 'nprogress';
 import withRouter from 'umi/withRouter';
 import { connect } from 'dva';
+import moment from 'moment';
+import SessionStorage from 'esports-core/utils/sessionStorage';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import '@/layouts/nprogress.less';
 import {LocaleProvider} from "antd-mobile";
@@ -15,22 +17,75 @@ let currHref = '';
 const ANIMATION_MAP = {
   PUSH: 'forward',
   POP: 'back'
-}
+};
 
-@connect(({ oddsList, loading }) => ({
+@connect(({ oddsList, login, loading }) => ({
   oddsList,
+  login,
   handicapLoading:loading.models.oddsList,
 }))
 class BasicLayout extends PureComponent {
 
+  state = {
+    isLogin: true
+  };
+
+  timer = null;
+  timer1 = null;
+  setRefreshToken = () => {
+    const expire = SessionStorage.get('expire');
+    const expireTimestamp = moment(expire).valueOf();
+    const now = moment().valueOf();
+    const setTime = (expireTimestamp - now + 1000 * 60 * 5) > 1000 * 60 *5 ? expireTimestamp - now + 1000 * 60 * 5 : 10000 ;
+    if(this.timer !== null) {
+      this.timer = setTimeout(this.refreshToken,
+        setTime)
+    }
+  };
+
+  refreshToken = () => {
+    const { dispatch, } = this.props;
+    const token = SessionStorage.get('token');
+    dispatch({
+      type: 'login/refreshToken',
+      payload: {token},
+      callback: (res) => {
+        SessionStorage.add('token',res.token);
+        SessionStorage.add('expire',res.expire);
+        this.setRefreshToken()
+      }
+    });
+  };
+
   componentDidMount() {
-    this.timer = setInterval(() => {
+    const { dispatch, location } = this.props;
+    if(SessionStorage.get('token') !== undefined && SessionStorage.get('token') !== null  ){
+      this.setRefreshToken();
+      this.setState({
+        isLogin: true
+      })
+    }else{
+      const token = location.query.token;
+      dispatch({
+        type: 'login/login',
+        payload: {token},
+        callback: (res) => {
+          SessionStorage.add('token',res.token);
+          SessionStorage.add('expire',res.expire);
+          this.setRefreshToken();
+          this.setState({
+            isLogin: true
+          })
+        }
+      });
+    }
+    this.timer1 = setInterval(() => {
       this.getOddsList()
     },10000);
   }
 
   componentWillUnmount() {
-    window.clearInterval(this.timer)
+    window.clearInterval(this.timer1)
   }
 
   getOddsList = () => {
@@ -68,9 +123,6 @@ class BasicLayout extends PureComponent {
           </CSSTransition>
         </TransitionGroup>
       </LocaleProvider>
-
-
-
     );
   }
 }

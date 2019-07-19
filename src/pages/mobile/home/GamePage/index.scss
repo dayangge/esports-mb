@@ -87,9 +87,10 @@
     background: #1e1f25;
     position: relative;
     z-index: 0;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
-    margin-bottom: px2vh(4);
+    padding: 0 3.6vw;
+    margin-bottom: 1vh;
     font-size: 2vw;
     height: 4vh;
     display: flex;
@@ -160,6 +161,7 @@
     }
   }
   .main {
+    width: 100%;
     position: relative;
     padding: 0 3.6vw;
     .event-loading {

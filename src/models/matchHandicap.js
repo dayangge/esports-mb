@@ -15,11 +15,11 @@ export default {
   effects: {
     *fetchMatchHandicap({ payload }, { call, put, select }) {
       let data = yield call(matchHandicap, payload);
-      let data1 = normalizeData(data,'handicap_id');
+      if(data === undefined){return}
+      let handicapData = normalizeData(data,'handicap_id');
       const matchHandicapDB = yield select( state => state.matchHandicapDB.matchHandicapDB);
-      const newMatchHandicapDB = Object.assign({}, matchHandicapDB, data1.list);
+      const newMatchHandicapDB = Object.assign({}, matchHandicapDB, handicapData.list);
       let data2 = newDataAccordingToID(data,'round');
-      console.log(data2);
       yield put({
         type: 'matchHandicapDB/saveMatchHandicapData',
         payload: newMatchHandicapDB,

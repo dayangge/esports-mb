@@ -2,7 +2,7 @@ export default {
   namespace: 'gameAndMatchRequestParams',
 
   state: {
-      game_id:1,
+      game_id:'',
       matchType:1
   },
 

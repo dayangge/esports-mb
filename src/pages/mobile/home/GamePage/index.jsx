@@ -1,10 +1,3 @@
-/*
- * @Author: Jan-superman
- * @Date: 2018-09-27 20:38:37
- * @Last Modified by: Jan-superman
- * @Last Modified time: 2018-11-07 23:33:55
- */
-
 import React, { PureComponent } from 'react';
 import { connect } from 'dva';
 import ScrollWrap from '../../../../components/ScrollWrap/index';
@@ -26,12 +19,12 @@ function closest(el, selector) {
   return null;
 }
 
-
-@connect(({ gameList, matchList, matchHandicap, oddsList, loading }) => ({
+@connect(({ gameList, matchList, matchHandicap,gameAndMatchRequestParams, oddsList, loading }) => ({
   gameList,
   matchList,
   matchHandicap,
   oddsList,
+  gameAndMatchRequestParams,
   gameLoading: loading.models.gameList,
   matchLoading: loading.models.matchList,
   handicapLoading: loading.models.matchHandicap,
@@ -39,7 +32,6 @@ function closest(el, selector) {
 class Home extends PureComponent {
   timer = null;
   mainHeight = 0;
-
   state = {
     modal1:false,
     renderLen: 14,
@@ -54,16 +46,13 @@ class Home extends PureComponent {
   }
 
   componentDidMount() {
-    const { dispatch } = this.props;
-    console.log(this.props);
+    const { dispatch, gameAndMatchRequestParams: {game_id}} = this.props;
     dispatch({
       type: 'gameList/fetchGameList',
     });
     dispatch({
       type: 'matchList/fetchMatchList',
-      payload: {
-        id: 123,
-      },
+      payload: {game_id}
     });
     dispatch({
       type: 'oddsList/fetchOddsList',
@@ -71,12 +60,7 @@ class Home extends PureComponent {
     this.mainHeight = this.mainRef.current.clientHeight;
     if(!this.timer) {
       this.timer = setInterval(() => {
-        dispatch({
-          type: 'matchList/fetchMatchList',
-          payload: {
-            id: 123,
-          },
-        });
+        this.fetchMatchListData();
         dispatch({
           type: 'gameList/fetchGameList',
         });
@@ -94,11 +78,29 @@ class Home extends PureComponent {
     return null
   }
 
+  // 处理屏幕滚动事件，实现加载更多的效果
+  componentWillUnmount() {
+    clearInterval(this.timer)
+  }
+
+  fetchMatchListData = () => {
+    const { dispatch,gameAndMatchRequestParams: {game_id} } = this.props;
+    dispatch({
+      type: 'matchList/fetchMatchList',
+      payload: {
+        game_id
+      },
+    });
+  };
+
+  handleGameIDChangeScrollToTop = () => {
+    this.scrollWrapChild.scrollToTop()
+  };
+
   scrollLoadGame = (pos)=> {
     const contentHeight = this.myRef=== null ? 0 : this.myRef.current.myRef.clientHeight;
     const offset = contentHeight - this.mainHeight + pos.y;
     const { renderLen, eventLen } = this.state;
-    console.log(offset,pos.y,contentHeight)
     if(offset <= 200){
       const downPulling =  renderLen + 7 > eventLen ? eventLen : renderLen + 7;
       this.setState({
@@ -108,7 +110,6 @@ class Home extends PureComponent {
   };
 
   onOpenChange = (...args) => {
-    console.log(args);
     this.setState({ openUser: !this.state.openUser });
   };
 
@@ -136,18 +137,18 @@ class Home extends PureComponent {
     }
   };
 
-  // 处理屏幕滚动事件，实现加载更多的效果
-  componentWillUnmount() {
-    clearInterval(this.timer)
-  }
+  onScrollWrapRef = (ref) => {
+    this.scrollWrapChild= ref
+  };
+
 
   render() {
     const { gameList: { gameList }, matchList: { matchList } } = this.props;
     const gameListIds = gameList.ids;
     const gameListList = gameList.list;
     const { renderLen } = this.state;
-    const sidebar = (<ul className={styles['user-center']}>
-
+    const sidebar = (
+      <ul className={styles['user-center']}>
       <li className={styles.name}>liucaihua</li>
       <li className={styles.log}>
         <div className={styles.left}>
@@ -177,7 +178,8 @@ class Home extends PureComponent {
       <Link to={`/rules`}  className={styles.log}>
         <div className={styles.left}>
           <span className={styles.rules} />
-          规则说明</div>
+          规则说明
+        </div>
         <div className={styles.right}>
           <Icon type='right'/>
         </div>
@@ -185,7 +187,8 @@ class Home extends PureComponent {
       <Link to={`/matchResult`}  className={styles.log}>
         <div className={styles.left}>
           <span className={styles.rules} />
-          查看赛果</div>
+          查看赛果
+        </div>
         <div className={styles.right}>
           <Icon type='right'/>
         </div>
@@ -195,17 +198,16 @@ class Home extends PureComponent {
       <div className={styles.index} key='home'>
         <div className={styles['top-fixed']}>
           <div className={styles['top-header']}>
-            <div className={styles.user} onClick={ this.onOpenChange }>
+            <div className={styles.user} onClick={this.onOpenChange}>
               <div className={styles['user-icon']} />
             </div>
             <div className={styles['top-header-main']}>
-              <div className={styles['header-main-name']}>RMB0.12</div>
+              <div className={styles['header-main-name']}>亚冠电竞</div>
             </div>
             <Link to={`/betLog`} className={styles.info}>
                 <div className={styles['bet-info']} />
             </Link>
           </div>
-
         </div>
         <Drawer
           className="my-drawer"
@@ -218,7 +220,7 @@ class Home extends PureComponent {
         >
           <div className={styles['game-tab']}>
             <div className={styles['game-tab-main']}>
-              <TopTabs ids={gameListIds} list={gameListList} />
+              <TopTabs ids={gameListIds} list={gameListList} handleGameIDChange={this.handleGameIDChangeScrollToTop}/>
             </div>
           </div>
           <div className={styles['game-result']}>
@@ -235,9 +237,9 @@ class Home extends PureComponent {
             </div>
             <div className={styles.balance}>账户余额：90.00</div>
           </div>
-
           <div className={styles.main} ref={this.mainRef}>
             <ScrollWrap
+              onScrollWrapRef={this.onScrollWrapRef}
               ref={this.myRef}
               wrapId="game-wrap"
               wrapClass="game-wrapper"
@@ -245,17 +247,14 @@ class Home extends PureComponent {
               isX={false}
               isY={true}
               fn={this.scrollLoadGame}
+              scrollTo={false}
             >
-              {matchList.ids.slice(0,renderLen).map((val) => (
-                <EventInfo data={matchList.list[val]} key={val}/>
-              ))}
               {
-                renderLen === matchList.ids.length? (
-                  <div className={styles['event-loading']}>
-                    到底了。。。
-                  </div>
-                ) : ''
-              }
+                matchList.ids.length !== 0 ?
+                matchList.ids.slice(0,renderLen).map((val) => (
+                <EventInfo data={matchList.list[val]} key={val}/>
+                )) :'暂无数据'
+                }
             </ScrollWrap>
           </div>
         </Drawer>
@@ -300,7 +299,7 @@ class Home extends PureComponent {
               </div>
             </div>
             <div className={styles['modal-ok']}>
-              <div className={styles.button}   onClick={this.onCloseModal1}>确定</div>
+              <div className={styles.button}  onClick={this.onCloseModal1}>确定</div>
             </div>
           </div>
 

@@ -43,19 +43,17 @@ class Fade extends    PureComponent {
   render() {
     const { in: inProp, } = this.props;
     const defaultStyle = {
-      transition: `transform ${300}ms ease-in-out, opacity ${300}ms ease-in-out`,
-      transform: 'translateX(100px)',
-      opacity: '0'
+      transition: `all ${300}ms ease-in-out 1s`,
     };
 
     const transitionStyles = {
-      entering: { transform: 'translateY(10px)', opacity: '0'},
+      entering: { transform: 'translateY(-100%)', opacity: '1'},
       entered:  { transform: 'translateY(0px)', opacity: '1' },
       exiting: {transform: 'translateY(0px)', opacity: '1'},
-      exited: {transform: 'translateY(0px)', opacity: '0'}
+      exited: {transform: 'translateY(-100%)', opacity: '1'}
     };
     const duration = {
-      enter: 100,
+      enter: 200,
       exit: 200,
     };
     // 上面的都是基本参数，样式的转变以及时间的设定，具体的可以看官网文档

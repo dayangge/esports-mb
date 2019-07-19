@@ -4,31 +4,53 @@ export default {
   namespace: 'oddsList',
 
   state: {
-    oddsList: {}
+    oddsList: {
+    },
+    timestamp: ''
   },
 
   effects: {
-    *fetchOddsList({payload}, { call, put, select }) {
-      const data = yield call(getOddsList, payload);
+    *fetchOddsList(_, { call, put, select }) {
+      const time = yield select(
+        state => state.oddsList.timestamp
+      );
+      let params = {};
+      if(time !== ''){
+        params = {
+          timestamp: time
+        }
+      }
+      const data = yield call(getOddsList, params);
+      if(data === undefined){return}
+      const timestamp = data.timestamp;
+      const list = data.odd_lists;
       const oldData = yield select(
         state => state.oddsList.oddsList
       );
-      for(let key in oldData){
-        if(oldData.hasOwnProperty(key)){
-          if(oldData[key].odds > data[key].odds){
-            data[key].increase = -1
-          }
-          if(oldData[key].odds < data[key].odds){
-            data[key].increase = 1
-          }
-          if(oldData[key].odds === data[key].odds){
-            data[key].increase = 0
+
+      for(let key in list){
+        if(list.hasOwnProperty(key)) {
+          if (oldData[key] === undefined) {
+            oldData[key] = list[key]
+          } else {
+            if (oldData[key].odds > list[key].odds) {
+              oldData[key].increase = -1
+            }
+            if (oldData[key].odds < list[key].odds) {
+              oldData[key].increase = 1
+            }
+            if (oldData[key].odds === list[key].odds) {
+              oldData[key].increase = 0
+            }
           }
         }
       }
       yield put({
         type: 'save',
-        payload: data,
+        payload: {
+          timestamp,
+          oddsList: oldData
+        },
       });
     },
   },
@@ -37,7 +59,8 @@ export default {
     save(state, { payload }) {
       return {
         ...state,
-        oddsList: payload,
+        oddsList: payload.oddsList,
+        timestamp: payload.timestamp
       };
     },
   },
